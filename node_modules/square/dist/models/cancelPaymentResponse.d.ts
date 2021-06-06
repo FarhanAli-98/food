@@ -1,0 +1,11 @@
+import { Schema } from '../schema';
+import { Error } from './error';
+import { Payment } from './payment';
+/** The return value from the [CancelPayment](#endpoint-payments-cancelpayment) endpoint. */
+export interface CancelPaymentResponse {
+    /** Information about errors encountered during the request. */
+    errors?: Error[];
+    /** Represents a payment processed by the Square API. */
+    payment?: Payment;
+}
+export declare const cancelPaymentResponseSchema: Schema<CancelPaymentResponse>;

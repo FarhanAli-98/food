@@ -1,0 +1,14 @@
+import { Schema } from '../schema';
+import { V1PageCell } from './v1PageCell';
+/** V1Page */
+export interface V1Page {
+    /** The page's unique identifier. */
+    id?: string;
+    /** The page's name, if any. */
+    name?: string;
+    /** The page's position in the merchant's list of pages. Always an integer between 0 and 6, inclusive. */
+    pageIndex?: number;
+    /** The cells included on the page. */
+    cells?: V1PageCell[];
+}
+export declare const v1PageSchema: Schema<V1Page>;

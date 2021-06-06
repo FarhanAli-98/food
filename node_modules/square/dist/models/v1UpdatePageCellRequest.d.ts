@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1PageCell } from './v1PageCell';
+export interface V1UpdatePageCellRequest {
+    /** V1PageCell */
+    body: V1PageCell;
+}
+export declare const v1UpdatePageCellRequestSchema: Schema<V1UpdatePageCellRequest>;

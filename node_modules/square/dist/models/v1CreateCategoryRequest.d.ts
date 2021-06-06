@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1Category } from './v1Category';
+export interface V1CreateCategoryRequest {
+    /** V1Category */
+    body?: V1Category;
+}
+export declare const v1CreateCategoryRequestSchema: Schema<V1CreateCategoryRequest>;

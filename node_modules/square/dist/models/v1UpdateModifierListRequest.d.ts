@@ -1,0 +1,8 @@
+import { Schema } from '../schema';
+/** V1UpdateModifierListRequest */
+export interface V1UpdateModifierListRequest {
+    /** The modifier list's name. */
+    name?: string;
+    selectionType?: string;
+}
+export declare const v1UpdateModifierListRequestSchema: Schema<V1UpdateModifierListRequest>;

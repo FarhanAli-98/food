@@ -1,0 +1,15 @@
+import { Schema } from '../schema';
+import { V1ModifierOption } from './v1ModifierOption';
+/** V1ModifierList */
+export interface V1ModifierList {
+    /** The modifier list's unique ID. */
+    id?: string;
+    /** The modifier list's name. */
+    name?: string;
+    selectionType?: string;
+    /** The options included in the modifier list. */
+    modifierOptions?: V1ModifierOption[];
+    /** The ID of the CatalogObject in the Connect v2 API. Objects that are shared across multiple locations share the same v2 ID. */
+    v2Id?: string;
+}
+export declare const v1ModifierListSchema: Schema<V1ModifierList>;

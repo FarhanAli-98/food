@@ -1,0 +1,9 @@
+import { Schema } from '../schema';
+/** V1ItemImage */
+export interface V1ItemImage {
+    /** The image's unique ID. */
+    id?: string;
+    /** The image's publicly accessible URL. */
+    url?: string;
+}
+export declare const v1ItemImageSchema: Schema<V1ItemImage>;

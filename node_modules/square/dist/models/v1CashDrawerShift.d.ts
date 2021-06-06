@@ -1,0 +1,37 @@
+import { Schema } from '../schema';
+import { Device } from './device';
+import { V1CashDrawerEvent } from './v1CashDrawerEvent';
+import { V1Money } from './v1Money';
+/** Contains details for a single cash drawer shift. */
+export interface V1CashDrawerShift {
+    /** The shift's unique ID. */
+    id?: string;
+    eventType?: string;
+    /** The time when the shift began, in ISO 8601 format. */
+    openedAt?: string;
+    /** The time when the shift ended, in ISO 8601 format. */
+    endedAt?: string;
+    /** The time when the shift was closed, in ISO 8601 format. */
+    closedAt?: string;
+    /** The IDs of all employees that were logged into Square Register at some point during the cash drawer shift. */
+    employeeIds?: string[];
+    /** The ID of the employee that started the cash drawer shift. */
+    openingEmployeeId?: string;
+    /** The ID of the employee that ended the cash drawer shift. */
+    endingEmployeeId?: string;
+    /** The ID of the employee that closed the cash drawer shift by auditing the cash drawer's contents. */
+    closingEmployeeId?: string;
+    /** A description of the cash drawer shift. */
+    description?: string;
+    startingCashMoney?: V1Money;
+    cashPaymentMoney?: V1Money;
+    cashRefundsMoney?: V1Money;
+    cashPaidInMoney?: V1Money;
+    cashPaidOutMoney?: V1Money;
+    expectedCashMoney?: V1Money;
+    closedCashMoney?: V1Money;
+    device?: Device;
+    /** All of the events (payments, refunds, and so on) that involved the cash drawer during the shift. */
+    events?: V1CashDrawerEvent[];
+}
+export declare const v1CashDrawerShiftSchema: Schema<V1CashDrawerShift>;

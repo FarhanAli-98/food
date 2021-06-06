@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1Timecard } from './v1Timecard';
+export interface V1UpdateTimecardRequest {
+    /** Represents a timecard for an employee. */
+    body: V1Timecard;
+}
+export declare const v1UpdateTimecardRequestSchema: Schema<V1UpdateTimecardRequest>;

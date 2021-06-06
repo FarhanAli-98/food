@@ -1,0 +1,20 @@
+import { Schema } from '../schema';
+/** V1BankAccount */
+export interface V1BankAccount {
+    /** The bank account's Square-issued ID. */
+    id?: string;
+    /** The Square-issued ID of the merchant associated with the bank account. */
+    merchantId?: string;
+    /** The name of the bank that manages the account. */
+    bankName?: string;
+    /** The name associated with the bank account. */
+    name?: string;
+    /** The bank account's routing number. */
+    routingNumber?: string;
+    /** The last few digits of the bank account number. */
+    accountNumberSuffix?: string;
+    /** The currency code of the currency associated with the bank account, in ISO 4217 format. For example, the currency code for US dollars is USD. */
+    currencyCode?: string;
+    type?: string;
+}
+export declare const v1BankAccountSchema: Schema<V1BankAccount>;

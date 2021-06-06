@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1Page } from './v1Page';
+export interface V1UpdatePageRequest {
+    /** V1Page */
+    body: V1Page;
+}
+export declare const v1UpdatePageRequestSchema: Schema<V1UpdatePageRequest>;

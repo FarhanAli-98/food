@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1Fee } from './v1Fee';
+export interface V1CreateFeeRequest {
+    /** V1Fee */
+    body?: V1Fee;
+}
+export declare const v1CreateFeeRequestSchema: Schema<V1CreateFeeRequest>;

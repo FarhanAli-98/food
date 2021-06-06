@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1Category } from './v1Category';
+export interface V1ListCategoriesResponse {
+    items?: V1Category[];
+}
+export declare const v1ListCategoriesResponseSchema: Schema<V1ListCategoriesResponse>;

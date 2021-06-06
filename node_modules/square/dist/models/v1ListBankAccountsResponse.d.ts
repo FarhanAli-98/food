@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1BankAccount } from './v1BankAccount';
+export interface V1ListBankAccountsResponse {
+    items?: V1BankAccount[];
+}
+export declare const v1ListBankAccountsResponseSchema: Schema<V1ListBankAccountsResponse>;

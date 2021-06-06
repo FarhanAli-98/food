@@ -1,0 +1,16 @@
+import { Schema } from '../schema';
+import { V1Money } from './v1Money';
+/** V1CashDrawerEvent */
+export interface V1CashDrawerEvent {
+    /** The event's unique ID. */
+    id?: string;
+    /** The ID of the employee that created the event. */
+    employeeId?: string;
+    eventType?: string;
+    eventMoney?: V1Money;
+    /** The time when the event occurred, in ISO 8601 format. */
+    createdAt?: string;
+    /** An optional description of the event, entered by the employee that created it. */
+    description?: string;
+}
+export declare const v1CashDrawerEventSchema: Schema<V1CashDrawerEvent>;

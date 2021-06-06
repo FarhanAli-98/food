@@ -1,0 +1,485 @@
+import { ApiResponse } from '../apiResponse';
+import { RequestOptions } from '../http/requestBuilder';
+import { V1AdjustInventoryRequest } from '../models/v1AdjustInventoryRequest';
+import { V1Category } from '../models/v1Category';
+import { V1Discount } from '../models/v1Discount';
+import { V1Fee } from '../models/v1Fee';
+import { V1InventoryEntry } from '../models/v1InventoryEntry';
+import { V1Item } from '../models/v1Item';
+import { V1ModifierList } from '../models/v1ModifierList';
+import { V1ModifierOption } from '../models/v1ModifierOption';
+import { V1Page } from '../models/v1Page';
+import { V1PageCell } from '../models/v1PageCell';
+import { V1UpdateModifierListRequest } from '../models/v1UpdateModifierListRequest';
+import { V1Variation } from '../models/v1Variation';
+import { BaseApi } from './baseApi';
+export declare class V1ItemsApi extends BaseApi {
+    /**
+     * Lists all the item categories for a given location.
+     *
+     * @param locationId  The ID of the location to list categories for.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listCategories(locationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Category[]>>;
+    /**
+     * Creates an item category.
+     *
+     * @param locationId  The ID of the location to create an item for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                         corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createCategory(locationId: string, body: V1Category, requestOptions?: RequestOptions): Promise<ApiResponse<V1Category>>;
+    /**
+     * Deletes an existing item category.
+     *
+     *
+     * __DeleteCategory__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteCategoryRequest` object
+     * as documented below.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param categoryId  The ID of the category to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteCategory(locationId: string, categoryId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Category>>;
+    /**
+     * Modifies the details of an existing item category.
+     *
+     * @param locationId  The ID of the category's associated location.
+     * @param categoryId  The ID of the category to edit.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                         corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateCategory(locationId: string, categoryId: string, body: V1Category, requestOptions?: RequestOptions): Promise<ApiResponse<V1Category>>;
+    /**
+     * Lists all the discounts for a given location.
+     *
+     * @param locationId  The ID of the location to list categories for.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listDiscounts(locationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Discount[]>>;
+    /**
+     * Creates a discount.
+     *
+     * @param locationId  The ID of the location to create an item for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                         corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createDiscount(locationId: string, body: V1Discount, requestOptions?: RequestOptions): Promise<ApiResponse<V1Discount>>;
+    /**
+     * Deletes an existing discount.
+     *
+     *
+     * __DeleteDiscount__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteDiscountRequest` object
+     * as documented below.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param discountId  The ID of the discount to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteDiscount(locationId: string, discountId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Discount>>;
+    /**
+     * Modifies the details of an existing discount.
+     *
+     * @param locationId  The ID of the category's associated location.
+     * @param discountId  The ID of the discount to edit.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                         corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateDiscount(locationId: string, discountId: string, body: V1Discount, requestOptions?: RequestOptions): Promise<ApiResponse<V1Discount>>;
+    /**
+     * Lists all the fees (taxes) for a given location.
+     *
+     * @param locationId  The ID of the location to list fees for.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listFees(locationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Fee[]>>;
+    /**
+     * Creates a fee (tax).
+     *
+     * @param locationId  The ID of the location to create a fee for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                    corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createFee(locationId: string, body: V1Fee, requestOptions?: RequestOptions): Promise<ApiResponse<V1Fee>>;
+    /**
+     * Deletes an existing fee (tax).
+     *
+     *
+     * __DeleteFee__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteFeeRequest` object
+     * as documented below.
+     *
+     * @param locationId  The ID of the fee's associated location.
+     * @param feeId       The ID of the fee to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteFee(locationId: string, feeId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Fee>>;
+    /**
+     * Modifies the details of an existing fee (tax).
+     *
+     * @param locationId  The ID of the fee's associated location.
+     * @param feeId       The ID of the fee to edit.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                    corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateFee(locationId: string, feeId: string, body: V1Fee, requestOptions?: RequestOptions): Promise<ApiResponse<V1Fee>>;
+    /**
+     * Provides inventory information for all inventory-enabled item
+     * variations.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param limit       The maximum number of inventory entries to return in a single response. This value
+     *                              cannot exceed 1000.
+     * @param batchToken  A pagination cursor to retrieve the next set of results for your original query to
+     *                              the endpoint.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listInventory(locationId: string, limit?: number, batchToken?: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1InventoryEntry[]>>;
+    /**
+     * Adjusts the current available inventory of an item variation.
+     *
+     * @param locationId   The ID of the item's associated location.
+     * @param variationId  The ID of the variation to adjust inventory information
+     *                                                        for.
+     * @param body         An object containing the fields to POST for the request.
+     *                                                        See the corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    adjustInventory(locationId: string, variationId: string, body: V1AdjustInventoryRequest, requestOptions?: RequestOptions): Promise<ApiResponse<V1InventoryEntry>>;
+    /**
+     * Provides summary information of all items for a given location.
+     *
+     * @param locationId  The ID of the location to list items for.
+     * @param batchToken  A pagination cursor to retrieve the next set of results for your original query to
+     *                              the endpoint.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listItems(locationId: string, batchToken?: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item[]>>;
+    /**
+     * Creates an item and at least one variation for it.
+     *
+     *
+     *
+     * Item-related entities include fields you can use to associate them with
+     * entities in a non-Square system.
+     *
+     * When you create an item-related entity, you can optionally specify `id`.
+     * This value must be unique among all IDs ever specified for the account,
+     * including those specified by other applications. You can never reuse an
+     * entity ID. If you do not specify an ID, Square generates one for the entity.
+     *
+     * Item variations have a `user_data` string that lets you associate arbitrary
+     * metadata with the variation. The string cannot exceed 255 characters.
+     *
+     * @param locationId  The ID of the location to create an item for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                     corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createItem(locationId: string, body: V1Item, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Deletes an existing item and all item variations associated with it.
+     *
+     *
+     * __DeleteItem__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteItemRequest` object
+     * as documented below.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param itemId      The ID of the item to modify.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteItem(locationId: string, itemId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Provides the details for a single item, including associated modifier
+     * lists and fees.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param itemId      The item's ID.
+     * @return Response from the API call
+     * @deprecated
+     */
+    retrieveItem(locationId: string, itemId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Modifies the core details of an existing item.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param itemId      The ID of the item to modify.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                     corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateItem(locationId: string, itemId: string, body: V1Item, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Removes a fee assocation from an item so the fee is no longer
+     * automatically applied to the item in Square Point of Sale.
+     *
+     * @param locationId  The ID of the fee's associated location.
+     * @param itemId      The ID of the item to add the fee to.
+     * @param feeId       The ID of the fee to apply.
+     * @return Response from the API call
+     * @deprecated
+     */
+    removeFee(locationId: string, itemId: string, feeId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Associates a fee with an item so the fee is automatically applied to
+     * the item in Square Point of Sale.
+     *
+     * @param locationId  The ID of the fee's associated location.
+     * @param itemId      The ID of the item to add the fee to.
+     * @param feeId       The ID of the fee to apply.
+     * @return Response from the API call
+     * @deprecated
+     */
+    applyFee(locationId: string, itemId: string, feeId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Removes a modifier list association from an item so the modifier
+     * options from the list can no longer be applied to the item.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The ID of the modifier list to remove.
+     * @param itemId           The ID of the item to remove the modifier list from.
+     * @return Response from the API call
+     * @deprecated
+     */
+    removeModifierList(locationId: string, modifierListId: string, itemId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Associates a modifier list with an item so the associated modifier
+     * options can be applied to the item.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The ID of the modifier list to apply.
+     * @param itemId           The ID of the item to add the modifier list to.
+     * @return Response from the API call
+     * @deprecated
+     */
+    applyModifierList(locationId: string, modifierListId: string, itemId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Item>>;
+    /**
+     * Creates an item variation for an existing item.
+     *
+     * @param locationId  The ID of the item's associated location.
+     * @param itemId      The item's ID.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                          corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createVariation(locationId: string, itemId: string, body: V1Variation, requestOptions?: RequestOptions): Promise<ApiResponse<V1Variation>>;
+    /**
+     * Deletes an existing item variation from an item.
+     *
+     *
+     * __DeleteVariation__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteVariationRequest` object
+     * as documented below.
+     *
+     * @param locationId   The ID of the item's associated location.
+     * @param itemId       The ID of the item to delete.
+     * @param variationId  The ID of the variation to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteVariation(locationId: string, itemId: string, variationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Variation>>;
+    /**
+     * Modifies the details of an existing item variation.
+     *
+     * @param locationId   The ID of the item's associated location.
+     * @param itemId       The ID of the item to modify.
+     * @param variationId  The ID of the variation to modify.
+     * @param body         An object containing the fields to POST for the request.  See the
+     *                                           corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateVariation(locationId: string, itemId: string, variationId: string, body: V1Variation, requestOptions?: RequestOptions): Promise<ApiResponse<V1Variation>>;
+    /**
+     * Lists all the modifier lists for a given location.
+     *
+     * @param locationId  The ID of the location to list modifier lists for.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listModifierLists(locationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierList[]>>;
+    /**
+     * Creates an item modifier list and at least 1 modifier option for it.
+     *
+     * @param locationId  The ID of the location to create a modifier list for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                             corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createModifierList(locationId: string, body: V1ModifierList, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierList>>;
+    /**
+     * Deletes an existing item modifier list and all modifier options
+     * associated with it.
+     *
+     *
+     * __DeleteModifierList__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeleteModifierListRequest` object
+     * as documented below.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The ID of the modifier list to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteModifierList(locationId: string, modifierListId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierList>>;
+    /**
+     * Provides the details for a single modifier list.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The modifier list's ID.
+     * @return Response from the API call
+     * @deprecated
+     */
+    retrieveModifierList(locationId: string, modifierListId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierList>>;
+    /**
+     * Modifies the details of an existing item modifier list.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The ID of the modifier list to edit.
+     * @param body             An object containing the fields to POST for the
+     *                                                               request.  See the corresponding object definition
+     *                                                               for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateModifierList(locationId: string, modifierListId: string, body: V1UpdateModifierListRequest, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierList>>;
+    /**
+     * Creates an item modifier option and adds it to a modifier list.
+     *
+     * @param locationId       The ID of the item's associated location.
+     * @param modifierListId   The ID of the modifier list to edit.
+     * @param body             An object containing the fields to POST for the request.  See
+     *                                                    the corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createModifierOption(locationId: string, modifierListId: string, body: V1ModifierOption, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierOption>>;
+    /**
+     * Deletes an existing item modifier option from a modifier list.
+     *
+     *
+     * __DeleteModifierOption__ returns nothing on success but Connect
+     * SDKs map the empty response to an empty `V1DeleteModifierOptionRequest`
+     * object.
+     *
+     * @param locationId         The ID of the item's associated location.
+     * @param modifierListId     The ID of the modifier list to delete.
+     * @param modifierOptionId   The ID of the modifier list to edit.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deleteModifierOption(locationId: string, modifierListId: string, modifierOptionId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierOption>>;
+    /**
+     * Modifies the details of an existing item modifier option.
+     *
+     * @param locationId         The ID of the item's associated location.
+     * @param modifierListId     The ID of the modifier list to edit.
+     * @param modifierOptionId   The ID of the modifier list to edit.
+     * @param body               An object containing the fields to POST for the request.
+     *                                                      See the corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updateModifierOption(locationId: string, modifierListId: string, modifierOptionId: string, body: V1ModifierOption, requestOptions?: RequestOptions): Promise<ApiResponse<V1ModifierOption>>;
+    /**
+     * Lists all Favorites pages (in Square Point of Sale) for a given
+     * location.
+     *
+     * @param locationId  The ID of the location to list Favorites pages for.
+     * @return Response from the API call
+     * @deprecated
+     */
+    listPages(locationId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page[]>>;
+    /**
+     * Creates a Favorites page in Square Point of Sale.
+     *
+     * @param locationId  The ID of the location to create an item for.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                     corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    createPage(locationId: string, body: V1Page, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page>>;
+    /**
+     * Deletes an existing Favorites page and all of its cells.
+     *
+     *
+     * __DeletePage__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeletePageRequest` object.
+     *
+     * @param locationId  The ID of the Favorites page's associated location.
+     * @param pageId      The ID of the page to delete.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deletePage(locationId: string, pageId: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page>>;
+    /**
+     * Modifies the details of a Favorites page in Square Point of Sale.
+     *
+     * @param locationId  The ID of the Favorites page's associated location
+     * @param pageId      The ID of the page to modify.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                     corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updatePage(locationId: string, pageId: string, body: V1Page, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page>>;
+    /**
+     * Deletes a cell from a Favorites page in Square Point of Sale.
+     *
+     *
+     * __DeletePageCell__ returns nothing on success but Connect SDKs
+     * map the empty response to an empty `V1DeletePageCellRequest` object
+     * as documented below.
+     *
+     * @param locationId  The ID of the Favorites page's associated location.
+     * @param pageId      The ID of the page to delete.
+     * @param row         The row of the cell to clear. Always an integer between 0 and 4, inclusive. Row 0 is
+     *                              the top row.
+     * @param column      The column of the cell to clear. Always an integer between 0 and 4, inclusive.
+     *                              Column 0 is the leftmost column.
+     * @return Response from the API call
+     * @deprecated
+     */
+    deletePageCell(locationId: string, pageId: string, row?: string, column?: string, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page>>;
+    /**
+     * Modifies a cell of a Favorites page in Square Point of Sale.
+     *
+     * @param locationId  The ID of the Favorites page's associated location.
+     * @param pageId      The ID of the page the cell belongs to.
+     * @param body        An object containing the fields to POST for the request.  See the
+     *                                         corresponding object definition for field details.
+     * @return Response from the API call
+     * @deprecated
+     */
+    updatePageCell(locationId: string, pageId: string, body: V1PageCell, requestOptions?: RequestOptions): Promise<ApiResponse<V1Page>>;
+}

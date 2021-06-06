@@ -1,0 +1,12 @@
+import { Schema } from '../schema';
+import { Error } from './error';
+/**
+ * The return value from the
+ * [CancelPaymentByIdempotencyKey](#endpoint-payments-cancelpaymentbyidempotencykey) endpoint.
+ * On success, `errors` is empty.
+ */
+export interface CancelPaymentByIdempotencyKeyResponse {
+    /** Any errors that occurred during the request. */
+    errors?: Error[];
+}
+export declare const cancelPaymentByIdempotencyKeyResponseSchema: Schema<CancelPaymentByIdempotencyKeyResponse>;

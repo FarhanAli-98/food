@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1ModifierList } from './v1ModifierList';
+export interface V1ListModifierListsResponse {
+    items?: V1ModifierList[];
+}
+export declare const v1ListModifierListsResponseSchema: Schema<V1ListModifierListsResponse>;

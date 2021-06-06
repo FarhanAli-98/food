@@ -1,0 +1,9 @@
+import { Schema } from '../schema';
+/** V1InventoryEntry */
+export interface V1InventoryEntry {
+    /** The variation that the entry corresponds to. */
+    variationId?: string;
+    /** The current available quantity of the item variation. */
+    quantityOnHand?: number;
+}
+export declare const v1InventoryEntrySchema: Schema<V1InventoryEntry>;

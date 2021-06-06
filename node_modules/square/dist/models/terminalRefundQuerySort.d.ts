@@ -1,0 +1,10 @@
+import { Schema } from '../schema';
+export interface TerminalRefundQuerySort {
+    /**
+     * The order in which results are listed.
+     * - `ASC` - oldest to newest
+     * - `DESC` - newest to oldest (default).
+     */
+    sortOrder?: string;
+}
+export declare const terminalRefundQuerySortSchema: Schema<TerminalRefundQuerySort>;

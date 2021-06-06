@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1Discount } from './v1Discount';
+export interface V1ListDiscountsResponse {
+    items?: V1Discount[];
+}
+export declare const v1ListDiscountsResponseSchema: Schema<V1ListDiscountsResponse>;

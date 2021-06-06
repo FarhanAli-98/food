@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1CashDrawerShift } from './v1CashDrawerShift';
+export interface V1ListCashDrawerShiftsResponse {
+    items?: V1CashDrawerShift[];
+}
+export declare const v1ListCashDrawerShiftsResponseSchema: Schema<V1ListCashDrawerShiftsResponse>;

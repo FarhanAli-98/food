@@ -1,0 +1,6 @@
+import { Schema } from '../schema';
+import { V1TimecardEvent } from './v1TimecardEvent';
+export interface V1ListTimecardEventsResponse {
+    items?: V1TimecardEvent[];
+}
+export declare const v1ListTimecardEventsResponseSchema: Schema<V1ListTimecardEventsResponse>;

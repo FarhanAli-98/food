@@ -1,0 +1,10 @@
+import { Schema } from '../schema';
+/** V1AdjustInventoryRequest */
+export interface V1AdjustInventoryRequest {
+    /** The number to adjust the variation's quantity by. */
+    quantityDelta?: number;
+    adjustmentType?: string;
+    /** A note about the inventory adjustment. */
+    memo?: string;
+}
+export declare const v1AdjustInventoryRequestSchema: Schema<V1AdjustInventoryRequest>;

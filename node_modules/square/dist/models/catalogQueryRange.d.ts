@@ -1,0 +1,11 @@
+import { Schema } from '../schema';
+/** The query filter to return the search result whose named attribute values fall between the specified range. */
+export interface CatalogQueryRange {
+    /** The name of the attribute to be searched. */
+    attributeName: string;
+    /** The desired minimum value for the search attribute (inclusive). */
+    attributeMinValue?: number;
+    /** The desired maximum value for the search attribute (inclusive). */
+    attributeMaxValue?: number;
+}
+export declare const catalogQueryRangeSchema: Schema<CatalogQueryRange>;

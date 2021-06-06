@@ -1,0 +1,7 @@
+import { Schema } from '../schema';
+import { V1ModifierOption } from './v1ModifierOption';
+export interface V1UpdateModifierOptionRequest {
+    /** V1ModifierOption */
+    body: V1ModifierOption;
+}
+export declare const v1UpdateModifierOptionRequestSchema: Schema<V1UpdateModifierOptionRequest>;
